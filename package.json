@@ -15,5 +15,8 @@
   "devDependencies": {
     "@types/ws": "^8.5.13",
     "tsx": "^4.19.2"
-  }
+  },
+  "pluginType": "elizaos:plugin:1.0.0",
+  "pluginParameters": {},
+  "pluginEnv": {}
 }
