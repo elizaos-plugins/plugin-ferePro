@@ -1,11 +1,11 @@
 import {
     elizaLogger,
-    ActionExample,
-    Memory,
-    State,
-    IAgentRuntime,
+    type ActionExample,
+    type Memory,
+    type State,
+    type IAgentRuntime,
     type Action,
-    HandlerCallback,
+    type HandlerCallback,
 } from "@elizaos/core";
 import { FereProService } from "../services/FereProService";
 
@@ -49,13 +49,19 @@ export default {
         return true;
     },
 
-    handler: async (
+    handler: async ({
+        runtime,
+        message,
+        state,
+        options,
+        callback,
+    }: {
         runtime: IAgentRuntime,
         message: Memory,
         state: State,
-        _options: { [key: string]: unknown },
-        callback?: HandlerCallback
-    ) => {
+        options: any,
+        callback: HandlerCallback
+    }) => {
         elizaLogger.log("Executing SEND_FEREPRO_MESSAGE...");
 
         // Ensure state exists or generate a new one
