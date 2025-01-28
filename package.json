@@ -17,6 +17,11 @@
     "tsx": "^4.19.2"
   },
   "pluginType": "elizaos:plugin:1.0.0",
-  "pluginParameters": {},
-  "pluginEnv": {}
+  "pluginParameters": {
+    "FERE_USER_ID": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Fere user identification"
+    }
+  }
 }
