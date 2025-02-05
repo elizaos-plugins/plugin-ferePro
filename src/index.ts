@@ -1,4 +1,3 @@
-import { Plugin } from "@elizaos/core";
 import sendFereProMessage from "./actions/FereProAction";
 import { FereProService } from "./services/FereProService";
 
