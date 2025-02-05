@@ -2,7 +2,7 @@ import { Plugin } from "@elizaos/core";
 import sendFereProMessage from "./actions/FereProAction";
 import { FereProService } from "./services/FereProService";
 
-export const fereProPlugin: Plugin = {
+export const fereProPlugin = {
   name: "ferePro",
   description:
     "FerePro Plugin for Eliza - Enables WebSocket communication for AI-driven market insights",
