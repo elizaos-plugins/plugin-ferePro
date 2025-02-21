@@ -29,13 +29,15 @@ pnpm install @elizaos/plugin-ferepro
 
 ```env
 # Required
-Ensure that FEREAI_USER_ID and FEREAI_API_KEY are correctly set in the character secrets sections or as environment variables.
+Ensure that FEREAI_USER_ID and FEREAI_API_KEY are correctly set in the character secrets 
+sections or as environment variables.
 
 FEREAI_USER_ID: FereAI User ID
 FEREAI_API_KEY: FereAI API key
 
 # Optional
-FereAI pro take some time to respond. Set REQUEST_TIMEOUT to avoid response timeouts in the character settings section or as environment variable.
+FereAI pro take some time to respond. Set REQUEST_TIMEOUT to avoid response timeouts 
+in the character settings section or as environment variable.
 
 REQUEST_TIMEOUT: Number of milliseconds before a request times out
 
