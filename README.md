@@ -29,20 +29,19 @@ pnpm install @elizaos/plugin-ferepro
 
 ```env
 # Required
-FERE_USER_ID=your-user-id-here  # Default: 1a5b4a29-9d95-44c8-aef3-05a8e515f43e
+Ensure that FEREAI_USER_ID and FEREAI_API_KEY are correctly set in the character secrets sections or as environment variables.
+
+FEREAI_USER_ID: FereAI User ID
+FEREAI_API_KEY: FereAI API key
+
+# Optional
+FereAI pro take some time to respond. Set REQUEST_TIMEOUT to avoid response timeouts in the character settings section or as environment variable.
+
+REQUEST_TIMEOUT: Number of milliseconds before a request times out
+
 ```
 
 ## Usage
-
-### Basic Message Structure
-
-```typescript
-{
-    "message": "Your market query here",
-    "stream": boolean,  // Optional: Enable streaming responses
-    "debug": boolean    // Optional: Enable debug mode
-}
-```
 
 ### Example Queries
 
@@ -100,21 +99,21 @@ pnpm run dev
     - Tracks credits and usage
 
 2. **Actions**
-    - SEND_FEREPRO_MESSAGE: Primary action for API communication
+    - EXECUTE_FEREPRO: Primary action for API communication
     - Supports market queries and analysis requests
     - Handles both streaming and non-streaming responses
 
 ### Response Structure
 
 ```typescript
-interface ChatResponse {
-    answer: string;
-    chat_id: string;
-    representation?: Record<string, any>[];
-    agent_api_name: string;
-    query_summary: string;
-    agent_credits: number;
-    credits_available: number;
+export interface FereAIChatResponse {
+  answer: string;
+  chat_id: string;
+  representation: any[];
+  agent_api_name: string;
+  query_summary: string;
+  agent_credits: number;
+  credits_available: number;
 }
 ```
 
@@ -135,13 +134,12 @@ The plugin includes comprehensive error handling for:
 
     - Verify your internet connection
     - Check if the FerePro API service is available
-    - Ensure your FERE_USER_ID is valid and active
+    - Ensure your FERE_USER_ID and FERE_API_KEY is valid and active
 
 2. **Message Timeout**
 
     - The connection might time out for long-running queries
-    - Consider using streaming mode for large data requests
-    - Implement retry logic for important queries
+    - Consider setting REQUEST_TIMEOUT to avoid response timeouts in the character settings section or as environment variable.
 
 3. **Credit Depletion**
     - Monitor credits_available in responses
@@ -167,8 +165,8 @@ The plugin includes comprehensive error handling for:
 
 1. **API Credentials**
 
-    - Never expose your FERE_USER_ID in public repositories
-    - Use environment variables for sensitive data
+    - Never expose your FEREAI_USER_ID and FEREAI_API_KEY in public repositories
+    - Use environment variables or secrets sections in the character settings section for sensitive data
     - Rotate credentials periodically if possible
 
 2. **Rate Limiting**
@@ -214,24 +212,14 @@ Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) fil
 
 ## Credits
 
-This plugin integrates with and builds upon several key technologies:
-
-- [IPFS](https://ipfs.tech/): InterPlanetary File System
-- [Filecoin](https://filecoin.io/): Decentralized storage network
-- [Web3.Storage](https://web3.storage/): Decentralized storage service
-
 Special thanks to:
 
-- The Protocol Labs team for IPFS and Filecoin
-- The Web3.Storage team
-- The decentralized storage community
 - The Eliza community for their contributions and feedback
 
-For more information about Ferepro capabilities:
+For more information about FerePro capabilities:
 
-- [IPFS Documentation](https://docs.ipfs.tech/)
-- [Filecoin Documentation](https://docs.filecoin.io/)
-- [Web3.Storage Documentation](https://web3.storage/docs/)
+- [FereAI Website](https://www.fereai.xyz/)
+- [FereAI Agents Documentation](https://docs.fereai.xyz/docs/product/ai-versions)
 
 ## License
 
